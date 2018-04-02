@@ -1,0 +1,8 @@
+{
+    "name": "blackthorn-framework",
+    "version": "0.1-alpha",
+    "description": "A custom MVC framework to enable fast and flexible php development.",
+    "require": {
+        "smarty/smarty": "^3.1"
+    }
+}
