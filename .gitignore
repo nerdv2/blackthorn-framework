@@ -47,3 +47,6 @@ jspm_packages/
 
 composer.phar
 /vendor/
+
+/app/Cache/
+/app/Log/
