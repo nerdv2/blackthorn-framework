@@ -10,7 +10,7 @@ class Db
         return $pdo;
     }
 
-    public function insert($table, $data,$insertid=false)
+    public function insert($table, $data)
     {
         $query = 'INSERT INTO ' . $table;
         $record = array();
@@ -82,8 +82,8 @@ class Db
         $rundata        = $this->prepare($querydata);
         $rundata->bindParam(1, $whrdata);
         $rundata->execute();
-        $jmldata        = $rundata->rowCount();
+        $countresult    = $rundata->rowCount();
         
-        return $jmldata;
+        return $countresult;
     }
 }

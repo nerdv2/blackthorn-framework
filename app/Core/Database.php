@@ -44,12 +44,7 @@ class Database
             \PDO::ATTR_EMULATE_PREPARES   => false,
         ];
 
-        try {
-            $this->_pdoconnection = new \PDO($pdo_dsn, $pdo_user, $pdo_pass, $pdo_opt);
-
-        } catch (\PDOException $exc) {
-            echo 'Connection failed: ' .$exc->getMessage();
-        }
+        $this->_pdoconnection = new \PDO($pdo_dsn, $pdo_user, $pdo_pass, $pdo_opt);
     }
 
     public function getConnection()

@@ -70,7 +70,7 @@ class Blackthorn
      */
     public function appOverride()
     {
-        @list($controller, $action, $params) = explode("/", $this->path->getUrlPath());
+        @list($controller, $action) = explode("/", $this->path->getUrlPath());
 
         if ($controller == '') {
             $controller = Config::DEFAULT_CONTROLLER;
