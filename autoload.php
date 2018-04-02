@@ -1,4 +1,6 @@
 <?php
+// PSR-4 compliant autoloader.
+// https://www.php-fig.org/psr/psr-4/examples/
 spl_autoload_register(function ($class) {
     // project-specific namespace prefix
     $prefix = 'Blackthorn\\';
