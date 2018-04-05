@@ -54,8 +54,10 @@ class Config
     // built-in logging configuration (powered by monolog)
     const LOG_FILEFORMAT     = "-blackthorn.log";
     const LOG_FILEWITHDATE   = true;
-    const LOG_DATEFORMAT     = "Y-m-d";
+    const LOG_FILEDATEFORMAT = "Y-m-d";
     const LOG_FOLDER         = APPPATH . "/Log/";
     const LOG_NAME           = "blackthorn-framework";
 
+    // smarty configuration
+    const SMARTY_ESCAPE_HTML = true;
 }

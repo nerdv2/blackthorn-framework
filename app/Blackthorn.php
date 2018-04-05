@@ -72,12 +72,13 @@ class Blackthorn
         $this->smarty->compile_dir   = $this->path->getSmartyCachePath();
         $this->smarty->template_dir  = $this->path->getSmartyTemplatePath();
         $this->smarty->assign("fulldomain", $this->path->getUrlHost());
+        $this->smarty->escape_html   = Config::SMARTY_ESCAPE_HTML;
 
         // initialize monolog
         $log_fileformat              = Config::LOG_FILEFORMAT;
         
         if (Config::LOG_FILEWITHDATE) {
-            $log_fileformat          = date(Config::LOG_DATEFORMAT).Config::LOG_FILEFORMAT;
+            $log_fileformat          = date(Config::LOG_FILEDATEFORMAT).Config::LOG_FILEFORMAT;
         }
         
         $log_folder                  = Config::LOG_FOLDER.$log_fileformat;
