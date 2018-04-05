@@ -32,7 +32,7 @@ class Config
     const DEFAULT_ACTION     = 'index';
     const CONTROLLER_SUFFIX  = 'Controller';
     
-    // mariadb database configuration
+    // mysql/mariadb database configuration
     const DB_HOST            = 'localhost';
     const DB_USER            = 'root';
     const DB_PASS            = '';
@@ -43,4 +43,19 @@ class Config
     const COOKIE_LIFETIME    = 86400;
     const COOKIE_HTTPONLY    = true;
     const COOKIE_SECURE      = false;
+
+    // input post/get configuration
+    const GLOBAL_XSS_FILTER  = false; // unfinished placeholder
+
+    // built-in basic authentication helper
+    const ENABLE_AUTH_HELPER = false; // unfinished placeholder
+    const AUTH_HELPER_DB     = ''; // unfinished placeholder
+
+    // built-in logging configuration (powered by monolog)
+    const LOG_FILEFORMAT     = "-blackthorn.log";
+    const LOG_FILEWITHDATE   = true;
+    const LOG_DATEFORMAT     = "Y-m-d";
+    const LOG_FOLDER         = APPPATH . "/Log/";
+    const LOG_NAME           = "blackthorn-framework";
+
 }

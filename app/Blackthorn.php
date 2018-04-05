@@ -23,6 +23,9 @@ use Blackthorn\Core\Input;
 use Blackthorn\Functions\Db;
 use \Smarty as Smarty;
 
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+
 class Blackthorn
 {
     /**
@@ -58,15 +61,30 @@ class Blackthorn
             ]);
         }
         
+        // initialize built-in helper
         $this->path                  = new Path();
         $this->db                    = new Db();
         $this->security              = new Security();
         $this->input                 = new Input();
-
+        
+        // initialize smarty
         $this->smarty                = new Smarty();
         $this->smarty->compile_dir   = $this->path->getSmartyCachePath();
         $this->smarty->template_dir  = $this->path->getSmartyTemplatePath();
         $this->smarty->assign("fulldomain", $this->path->getUrlHost());
+
+        // initialize monolog
+        $log_fileformat              = Config::LOG_FILEFORMAT;
+        
+        if (Config::LOG_FILEWITHDATE) {
+            $log_fileformat          = date(Config::LOG_DATEFORMAT).Config::LOG_FILEFORMAT;
+        }
+        
+        $log_folder                  = Config::LOG_FOLDER.$log_fileformat;
+        $log                         = new Logger(Config::LOG_NAME);
+        $log->pushHandler(new StreamHandler($log_folder));
+
+        $this->log                   = $log;
     }
 
     /**
