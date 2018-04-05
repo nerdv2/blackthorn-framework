@@ -7,6 +7,8 @@
  * @category  Apps
  * @author    Gema Aji Wardian <gema_wardian@hotmail.com>
  * @copyright 2018 Gema Aji Wardian
+ * @license   MIT
+ * @license   https://opensource.org/licenses/MIT
  * @version   0.1-alpha
  * @since     File available since 0.1-alpha
  */
