@@ -18,9 +18,10 @@ namespace Blackthorn;
 
 use Blackthorn\Config\Config;
 use Blackthorn\Core\Path;
+use Blackthorn\Core\Security;
+use Blackthorn\Core\Input;
 use Blackthorn\Functions\Db;
 use \Smarty as Smarty;
-use Blackthorn\Core\Security;
 
 class Blackthorn
 {
