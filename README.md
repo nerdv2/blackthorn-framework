@@ -1,2 +1,2 @@
 # blockthorn-framework
-A custom MVC framework to enable fast and flexible php development.
+A custom basic MVC framework to enable fast and flexible php development.

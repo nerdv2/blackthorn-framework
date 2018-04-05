@@ -1,7 +1,14 @@
 {
     "name": "blackthorn-framework",
     "version": "0.1-alpha",
-    "description": "A custom MVC framework to enable fast and flexible php development.",
+    "description": "A custom basic MVC framework to enable fast and flexible php development.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gema Aji Wardian",
+            "email": "gema_wardian@hotmail.com"
+        }
+    ],
     "require": {
         "smarty/smarty": "^3.1"
     }

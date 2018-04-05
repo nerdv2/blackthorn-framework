@@ -60,6 +60,7 @@ class Blackthorn
         $this->path                  = new Path();
         $this->db                    = new Db();
         $this->security              = new Security();
+        $this->input                 = new Input();
 
         $this->smarty                = new Smarty();
         $this->smarty->compile_dir   = $this->path->getSmartyCachePath();
