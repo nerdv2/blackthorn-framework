@@ -20,6 +20,7 @@ use Blackthorn\Config\Config;
 use Blackthorn\Core\Path;
 use Blackthorn\Functions\Db;
 use \Smarty as Smarty;
+use Blackthorn\Core\Security;
 
 class Blackthorn
 {
@@ -58,6 +59,7 @@ class Blackthorn
         
         $this->path                  = new Path();
         $this->db                    = new Db();
+        $this->security              = new Security();
 
         $this->smarty                = new Smarty();
         $this->smarty->compile_dir   = $this->path->getSmartyCachePath();
