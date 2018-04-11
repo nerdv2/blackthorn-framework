@@ -22,14 +22,14 @@ class Input
 {
     public function get($get)
     {
-        $getdata = $_GET["$get"];
+        $getdata = filter_input(INPUT_GET, $get);
 
         return $getdata;
     }
 
     public function post($post)
     {
-        $postdata = $_POST["$post"];
+        $postdata = filter_input(INPUT_POST, $post);
 
         return $postdata;
     }
