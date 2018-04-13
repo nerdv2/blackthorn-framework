@@ -20,11 +20,23 @@ use Blackthorn\Config\Config;
 
 class Path
 {
+    /**
+     * isBaseUrl function.
+     *
+     * @access public
+     * @return string
+     */
     public function isBaseUrl()
     {
         return Config::BASE_URL;
     }
 
+    /**
+     * getUrlPath function.
+     *
+     * @access public
+     * @return string
+     */
     public function getUrlPath()
     {
         $path = trim(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), "/");
@@ -37,6 +49,12 @@ class Path
         return $path;
     }
 
+    /**
+     * getUrlHost function.
+     *
+     * @access public
+     * @return string
+     */
     public function getUrlHost()
     {
         $host =  'http://' . $_SERVER['HTTP_HOST'];
@@ -48,11 +66,23 @@ class Path
         }
     }
 
+    /**
+     * getSmartyCachePath function.
+     *
+     * @access public
+     * @return string
+     */
     public function getSmartyCachePath()
     {
         return APPPATH . '/Cache/';
     }
 
+    /**
+     * getSmartyTemplatePath function.
+     *
+     * @access public
+     * @return string
+     */
     public function getSmartyTemplatePath()
     {
         return APPPATH . Config::TEMPLATE_PATH;

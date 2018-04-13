@@ -23,6 +23,12 @@ class Database
     private static $_instance; //The single instance
     private $_pdoconnection;
 
+    /**
+     * getInstance function.
+     *
+     * @access public
+     * @return void
+     */
     public static function getInstance()
     {
         if (!self::$_instance) { // If no instance then make one

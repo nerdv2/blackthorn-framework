@@ -36,30 +36,10 @@ class Blackthorn
     public function __construct()
     {
         // check application environment
-        if (Config::DEV_MODE) {
-            error_reporting(-1);
-		    ini_set('display_errors', 1);
-        } else {
-            ini_set('display_errors', 0);
-            if (version_compare(PHP_VERSION, '5.3', '>='))
-            {
-                error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
-            }
-            else
-            {
-                error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_USER_NOTICE);
-            }
-        }
+        $this->initializeEnvironment();
 
         // check session management
-        if (!isset($_SESSION)) {
-            session_name(Config::COOKIE_NAME);
-            session_start([
-                'cookie_lifetime' => Config::COOKIE_LIFETIME,
-                'cookie_httponly' => Config::COOKIE_HTTPONLY,
-                'cookie_secure' => Config::COOKIE_SECURE
-            ]);
-        }
+        $this->initializeSession();
         
         // initialize built-in helper
         $this->path                  = new Path();
@@ -108,6 +88,36 @@ class Blackthorn
             $this->smarty->assign("pathlevel".$key, $value);
             $this->{'pathlevel'.$key}    = $value;
 
+        }
+    }
+
+    private function initializeEnvironment()
+    {
+        if (Config::DEV_MODE) {
+            error_reporting(-1);
+		    ini_set('display_errors', 1);
+        } else {
+            ini_set('display_errors', 0);
+            if (version_compare(PHP_VERSION, '5.3', '>='))
+            {
+                error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
+            }
+            else
+            {
+                error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_USER_NOTICE);
+            }
+        }
+    }
+
+    private function initializeSession()
+    {
+        if (!isset($_SESSION)) {
+            session_name(Config::COOKIE_NAME);
+            session_start([
+                'cookie_lifetime' => Config::COOKIE_LIFETIME,
+                'cookie_httponly' => Config::COOKIE_HTTPONLY,
+                'cookie_secure' => Config::COOKIE_SECURE
+            ]);
         }
     }
 

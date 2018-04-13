@@ -20,6 +20,13 @@ use Blackthorn\Config\Config;
 
 class Input
 {
+    /**
+     * get function.
+     *
+     * @access public
+     * @param mixed $get
+     * @return mixed
+     */
     public function get($get)
     {
         $getdata = filter_input(INPUT_GET, $get);
@@ -27,6 +34,13 @@ class Input
         return $getdata;
     }
 
+    /**
+     * post function.
+     *
+     * @access public
+     * @param mixed $post
+     * @return mixed
+     */
     public function post($post)
     {
         $postdata = filter_input(INPUT_POST, $post);
