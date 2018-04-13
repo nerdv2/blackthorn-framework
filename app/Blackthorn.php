@@ -73,6 +73,10 @@ class Blackthorn
         $this->smarty->template_dir  = $this->path->getSmartyTemplatePath();
         $this->smarty->assign("fulldomain", $this->path->getUrlHost());
         $this->smarty->escape_html   = Config::SMARTY_ESCAPE_HTML;
+        if(Config::SMARTY_SECURE_MODE)
+        {
+            $this->smarty->enableSecurity();
+        }
 
         // initialize monolog
         $log_fileformat              = Config::LOG_FILEFORMAT;
@@ -86,6 +90,25 @@ class Blackthorn
         $log->pushHandler(new StreamHandler($log_folder));
 
         $this->log                   = $log;
+
+        // url path management
+        $path = explode('/', $this->path->getUrlPath());
+
+        foreach ($path as $key => $value)
+        {
+            if($key === 0) {
+                $this->smarty->assign("canal", $value);
+                $this->canal         = $value;
+            } 
+            if($key === 1) {
+                $this->smarty->assign("action", $value);
+                $this->action        = $value;
+            }
+
+            $this->smarty->assign("pathlevel".$key, $value);
+            $this->{'pathlevel'.$key}    = $value;
+
+        }
     }
 
     /**

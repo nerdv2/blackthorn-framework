@@ -23,6 +23,7 @@ class Config
 
     // url configuration
     const BASE_URL           = 'blackthorn-framework/public';
+    const ALLOWED_URI_CHAR   = '[^a-zA-Z0-9]';
 
     // smarty configuration
     const TEMPLATE_PATH      = '/View/';
@@ -59,5 +60,6 @@ class Config
     const LOG_NAME           = "blackthorn-framework";
 
     // smarty configuration
-    const SMARTY_ESCAPE_HTML = true;
+    const SMARTY_ESCAPE_HTML = true; // https://www.smarty.net/docs/en/variable.escape.html.tpl
+    const SMARTY_SECURE_MODE = false; // https://www.smarty.net/docs/en/advanced.features.tpl#advanced.features.security
 }

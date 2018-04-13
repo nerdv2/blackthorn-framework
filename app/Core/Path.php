@@ -28,7 +28,7 @@ class Path
     public function getUrlPath()
     {
         $path = trim(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), "/");
-        $path = preg_replace('[^a-zA-Z0-9]', "", $path);
+        $path = preg_replace(Config::ALLOWED_URI_CHAR, "", $path);
 
         if (strpos($path, $this->isBaseUrl()) !== false) {
             $path = substr($path, strlen($this->isBaseUrl()) + 1);
