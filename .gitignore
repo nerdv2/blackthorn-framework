@@ -49,5 +49,8 @@ jspm_packages/
 composer.phar
 /vendor/
 
-/app/Cache/
-/app/Log/
+/app/Cache/*
+!/app/Cache/index.html
+
+/app/Log/*
+!/app/Log/index.html

@@ -1,7 +1,7 @@
 {
     "name": "blackthorn-framework",
     "version": "0.1-alpha",
-    "description": "A custom basic MVC framework to enable fast and flexible php development.",
+    "description": "A PHP MVC framework to enable fast and flexible php development.",
     "license": "MIT",
     "authors": [
         {
