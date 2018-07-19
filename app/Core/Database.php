@@ -40,12 +40,13 @@ class Database
     private function __construct()
     {
         $host        = Config::DB_HOST;
+        $port        = Config::DB_PORT;
         $dbname      = Config::DB_NAME;
         $pdo_user    = Config::DB_USER;
         $pdo_pass    = Config::DB_PASS;
         $charset     = 'utf8';
 
-        $pdo_dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
+        $pdo_dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=$charset";
         $pdo_opt = [
             \PDO::ATTR_ERRMODE            => \PDO::ERRMODE_EXCEPTION,
             \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,

@@ -35,8 +35,9 @@ class Config
     
     // mysql/mariadb database configuration
     const DB_HOST            = 'localhost';
+    const DB_PORT            = '3306';
     const DB_USER            = 'root';
-    const DB_PASS            = '';
+    const DB_PASS            = 'development';
     const DB_NAME            = 'test';
 
     // session cookie configuration
